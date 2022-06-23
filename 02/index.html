@@ -42,19 +42,33 @@
                 <li class="nav-item">
                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4" type="button">4</button>
                 </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5" type="button">5</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-6" type="button">6</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-7" type="button">7</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-8" type="button">8</button>
                 </li>
             </ul>
             <div class="tab-content pt-3" id="myTabContent">
                 <div class="tab-pane fade show active" id="tab-1" role="tabpanel">
                     <p>
                         Javascript reiškmės gali būti kelių skirtingų rūšių su skirtingomis savybėmis. Jos yra:
-                        <ul>
-                            <li>Skaičius - sveikasis arba su kableliu: <code>10</code>, <code>-15</code>, <code>0.5</code></li>
-                            <li>Tekstas - simboliai tarp kabučių, galima naudoti kabutes <kbd>'</kbd>, <kbd>"</kbd> arba <kbd>`</kbd>(šios turės papildomą savybę)</li>
-                            <li>Boolean - <code>true</code> arba <code>false</code></li>
-                            <li>Undefined ir Null - reikšmės, nurodančios kad reikšmė nekeista arba kad duomenų nėra</li>
-                            <li>Objektai ir masyvai - sudėtingesnės struktūros</li>
-                        </ul>
+                    <ul>
+                        <li>Skaičius - sveikasis arba su kableliu: <code>10</code>, <code>-15</code>, <code>0.5</code>
+                        </li>
+                        <li>Tekstas - simboliai tarp kabučių, galima naudoti kabutes <kbd>'</kbd>, <kbd>"</kbd> arba
+                            <kbd>`</kbd>(šios turės papildomą savybę)
+                        </li>
+                        <li>Boolean - <code>true</code> arba <code>false</code></li>
+                        <li>Undefined ir Null - reikšmės, nurodančios kad reikšmė nekeista arba kad duomenų nėra</li>
+                        <li>Objektai ir masyvai - sudėtingesnės struktūros</li>
+                    </ul>
                     </p>
                 </div>
                 <div class="tab-pane fade" id="tab-2" role="tabpanel">
@@ -64,60 +78,247 @@
                         jei atitinka nurodytos salygos.
                     </p>
                     <p>
-                        Visoms joms reikalingos <span class="text-primary">boolean</span> reikšmės. Boolean yra reikšmė, kurios
+                        Visoms joms reikalingos <span class="text-primary">boolean</span> reikšmės. Boolean yra reikšmė,
+                        kurios
                         vienintelės galimos reikšmės yra <code>true</code> ir <code>false</code>.
                     </p>
                     <p>
-                        Dėl paprastumo, kai tikimasi <span class="text-primary">boolean</span> tipo reikšmės, bandoma kitokias reišmes konvertuoti:
+                        Dėl paprastumo, kai tikimasi <span class="text-primary">boolean</span> tipo reikšmės, bandoma
+                        kitokias reišmes konvertuoti:
 
                     </p>
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-6">
                                 <h4 class="text-center border-bottom"><code>false</code></h3>
-                                <p class="text-center">0 , -0, 0n</p>
-                                <p class="text-center">'', "", ``</p>
-                                <p class="text-center">null, undefined, NaN</p>
+                                    <p class="text-center">0 , -0, 0n</p>
+                                    <p class="text-center">'', "", ``</p>
+                                    <p class="text-center">null, undefined, NaN</p>
                             </div>
                             <div class="col-sm-6 border-start">
                                 <h4 class="text-center border-bottom"><code>true</code></h3>
-                                <p class="text-center">Kiti skaičiai: 1, -100, 0.0001</p>
-                                <p class="text-center">Ne tuščia teksto eilutė: 'Hello', ' '</p>
-                                <p class="text-center">Bet koks objektas, masyvas ir t.t.</p>
+                                    <p class="text-center">Kiti skaičiai: 1, -100, 0.0001</p>
+                                    <p class="text-center">Ne tuščia teksto eilutė: 'Hello', ' '</p>
+                                    <p class="text-center">Bet koks objektas, masyvas ir t.t.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tab-3" role="tabpanel">
-                    <p>Dažniausiai naudojame <code>boolean</code> reikšmes ne tiesiogiai, bet gaunant ją iš palyginimo operacijų:</p>
+                    <p>
+                        Su <code>boolean</code> reikšmėmis mes dirbame naudojant logines operacijas, taip kaip su skaičiais dirbame su artimetinėmis operacijomis.
+                        Jos yra:
+                    </p>
+                    <h4>&& - loginis AND</h4>
+                    <p>Rezultatas lygus <code>true</code>, jei abi pusės yra <code>true</code>:</p>
+                    <p><code>true</code> && <code>true</code> <span class="text-primary">--&gt; </span> <code>true</code></p>
+                    <p><code>true</code> && <code>false</code> <span class="text-primary">--&gt; </span> <code>false</code></p>
+                    <p><code>false</code> && <code>true</code> <span class="text-primary">--&gt; </span> <code>false</code></p>
+                    <p><code>false</code> && <code>false</code> <span class="text-primary">--&gt; </span> <code>false</code></p>
+
+                    <h4>|| - loginis OR</h4>
+                    <p>Rezultatas lygus <code>true</code>, jei viena ar abi pusės yra <code>true</code>:</p>
+                    <p><code>true</code> && <code>true</code> <span class="text-primary">--&gt; </span> <code>true</code></p>
+                    <p><code>true</code> && <code>false</code> <span class="text-primary">--&gt; </span> <code>true</code></p>
+                    <p><code>false</code> && <code>true</code> <span class="text-primary">--&gt; </span> <code>true</code></p>
+                    <p><code>false</code> && <code>false</code> <span class="text-primary">--&gt; </span> <code>true</code></p>
+
+                    <h4>! - loginis NOT</h4>
+                    <p>Dirba tik su viena reikšme, ją pakeičia priešinga:</p>
+                    <p>!<code>true</code><span class="text-primary">--&gt; </span> <code>false</code></p>
+                    <p>!<code>false</code><span class="text-primary">--&gt; </span> <code>true</code></p>
+
+                    <p class="pt-2">Šių operacijų prioritetai: !, &&, || </p>
+                    <p>Kokie bus rezultatai?</p>
+                    <p><code>true</code> && <code>false</code> && <code>true</code></p>
+                    <p><code>true</code> || <code>false</code> && <code>true</code></p>
+                    <p>(<code>true</code> || <code>false</code>) && <code>true</code></p>
+                    <p>!<code>false</code> && <code>true</code></p>
+                    <p>!(<code>false</code> && <code>true</code>)</p>
+
+                </div>
+                <div class="tab-pane fade" id="tab-4" role="tabpanel">
+                    <p>Dažniausiai naudojame <code>boolean</code> reikšmes ne tiesiogiai, bet gaunant ją iš palyginimo
+                        operacijų:</p>
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-md-6">
                                 <h4 class="d-flex justify-content-center border-bottom">
-                                    <code class="px-2">&lt;</code>
                                     <code class="px-2">&gt;</code>
-                                    <code class="px-2">&lt;=</code>
+                                    <code class="px-2">&lt;</code>
                                     <code class="px-2">&gt;=</code>
+                                    <code class="px-2">&lt;=</code>
                                 </h4>
-                                <p>Palyginimas tarp skaičių</p>
+                                <p>Daugiau/mažiau palyginimai tarp skaičių. Pridėtas lygybės ženklas reiškia, kad tinka
+                                    ir vienodi skaičiai.</p>
+                                <p><code>10 &gt; 5</code> <span class="text-primary">--&gt; </span> <code>true</code>
+                                </p>
+                                <p><code>10 &gt; 10</code> <span class="text-primary">--&gt; </span> <code>false</code>
+                                </p>
+                                <p><code>10 &gt;= 10</code> <span class="text-primary">--&gt; </span> <code>true</code>
+                                </p>
+                                <aside class="text-secondary px-2">
+                                    <p class="text-secondary">Galima lyginti ir tekstą, bet rezultatas gali būti
+                                        klaidinantis.</p>
+                                    <p><code>'abc' &lt; 'cbd'</code> <span class="text-primary">--&gt; </span>
+                                        <code>true</code>
+                                    </p>
+                                    <p><code>'zebras' &gt; 'citrina'</code> <span class="text-primary">--&gt; </span>
+                                        <code>true</code>
+                                    </p>
+                                    <p><code>'Zebras' &gt; 'citrina'</code> <span class="text-primary">--&gt; </span>
+                                        <code>false</code>
+                                    </p>
+                                    <p><code>'zebras' &gt; 'česnakas'</code> <span class="text-primary">--&gt; </span>
+                                        <code>false</code>
+                                    </p>
+                                </aside>
+
                             </div>
-                            <div class="col-sm-4">
-    
-                            </div>
-                            <div class="col-sm-4">
-    
+                            <div class="col-md-6">
+                                <h4 class="d-flex justify-content-center border-bottom">
+                                    <code class="px-2">===</code>
+                                    <code class="px-2">!==</code>
+                                    <code class="px-2">==</code>
+                                    <code class="px-2">!=</code>
+                                </h4>
+                                <p>Atitikimo palyginimai.</p>
+                                <p><code>===</code> grąžina true, kai reikšmės abejose pusėse vienodos.</p>
+                                <p><code>!==</code> grąžina true, kai reikšmės abejose pusėse
+                                    <strong>ne</strong>vienodos
+                                </p>
+                                <p><code>==</code> ir <code>!=</code> atlieka atitinkamus veiksmus, bet pirma pabando
+                                    suvienodinti tipą. Recomendacija naudoti pirmas dvi operacijas veitoj šitų.</p>
+
+                                <p><code>10 === 5</code> <span class="text-primary">--&gt; </span> <code>false</code>
+                                </p>
+                                <p><code>10 === 10</code> <span class="text-primary">--&gt; </span> <code>true</code>
+                                </p>
+                                <p><code>10 !== 5</code> <span class="text-primary">--&gt; </span> <code>true</code></p>
+                                <p><code>10 === '10'</code> <span class="text-primary">--&gt; </span> <code>false</code>
+                                </p>
+                                <p><code>10 == '10'</code> <span class="text-primary">--&gt; </span> <code>true</code>
+                                </p>
+                                <p><code>10 == 'labas'</code> <span class="text-primary">--&gt; </span>
+                                    <code>false</code>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="tab-pane fade" id="tab-5" role="tabpanel">
+                    <p>
+                        Sekos valdymo struktūros yra trys: <span class="text-primary">if-else</span>, <span
+                            class="text-primary">while-loop</span> ir <span class="text-primary">for-loop</span>
+                    </p>
+                    <p>
+                        Dažiausiai iš jų naudojama yra <span class="text-primary">if-else</span>, skirtas veiksmui
+                        atlikti tik esant nurodytai salygai. Sintaksė:
+                    </p>
+                    <pre>
+                        <code>
+                            <i><code>if</code>(<span class="text-secondary">condition</span>) {</i>
+                            <i>    <span class="text-secondary">//do if true</span></i>
+                            <i>}</i>
+                        </code>
+                    </pre>
+                    <p><span class="text-secondary">condition</span> yra boolean reikšmė - jei ji <code>true</code>,
+                        vykdomas viduje esantis kodas, jei ne - praleidžiama.</p>
+                    <p>Jei reikia atlikti kitą veiksmą, esant <code>false</code> reikšmei, pridedame ir
+                        <code>else</code> salygą:
+                    </p>
+                    <pre>
+                        <code>
+                            <i><code>if</code>(<span class="text-secondary">condition</span>) {</i>
+                            <i>    <span class="text-secondary">//do if true</span></i>
+                            <i>}</i>
+                            <i><code>else</code>{</i>
+                            <i>    <span class="text-secondary">//do if false</span></i>
+                            <i>}</i>
+                        </code>
+                    </pre>
+                    <p>Galiausiai, galima sujungti kelias if salygas, kad jas tikrinti iš eilės. Bus įvykdyta pirma
+                        tinkanti salyga arba else, jei nė viena netinka:</p>
+                    <pre>
+                        <code>
+                            <i><code>function</code> compare(<span class="text-primary">number</span>) {</i>
+                            <i>    <code>if</code>(<span class="text-primary">number</span> &lt; 5) { </i>
+                            <i>        <code>return</code> 'Less than 5';</i>
+                            <i>    }</i>
+                            <i>    <code>else if </code>(<span class="text-primary">number</span> &lt; 7) {</i>
+                            <i>        <code>return</code>  'Less than 7';</i>
+                            <i>    }</i>
+                            <i>    <code>else if </code>(<span class="text-primary">number</span> &lt; 11) {</i>
+                            <i>        <code>return</code>  'Less than 11';</i> 
+                            <i>    }</i> 
+                            <i>    <code>else </code>{</i>  
+                            <i>        <code>return</code>  '11 or more';</i>
+                            <i>    }</i>
+                            <i>}</i>   
+                        </code>
+                    </pre>
+                </div>
+                <div class="tab-pane fade" id="tab-6" role="tabpanel">
+                    <p>Jei reikia veiksmą kartoti, reikia naudoti kartojimo struktūrą. Viena iš jų yra <span
+                            class="text-primary">for-loop</span>. Ją naudajame, kai žinome kiek kartų reikia veiksmą
+                        pakartoti. Jos sintaksė:</p>
+                    <pre>
+                        <code>
+                            <i><code>for</code> (<span class="text-primary">pradinis_veiskmas</span>; <span class="text-primary">tikrinimo_salyga</span>; <span class="text-primary">veiksmas_po_kartojimo</span>) {</i>
+                            <i>    <span class="text-secondary">//kartojamas veiksmas</span></i>
+                            <i>}</i>
+                        </code>
+                    </pre>
+                    <p>Labai dažnai pradinis veiksmas ir veiksmas po kartojimo yra standartiniai ir <span
+                            class="text-primary">for-loop</span> atrodo taip:</p>
+                    <pre>
+                        <code>
+                            <i><code>for</code> (<code>let</code> i = 0; i &lt; <span class="text-primary">pakartojimu_skaicius</span> ; i++) {</i>
+                            <i>    <span class="text-secondary">//kartojamas veiksmas</span></i>
+                            <i>}</i>
+                        </code>
+                    </pre>
+                </div>
+                <div class="tab-pane fade" id="tab-7" role="tabpanel">
+                    <p>Kita kartojimo struktūra yra <span class="text-primary">while-loop</span>. Ją kartojame kai
+                        nežinome, kiek kartų reikės kartoti veiksmus. Jos sintaksė:</p>
+                    <pre>
+                        <code>
+                            <i><code>while</code> (<span class="text-primary">salyga</span>) {</i>
+                            <i>    <span class="text-secondary">//kartojame, kol salyga === true</span></i>
+                            <i>}</i>
+                        </code>
+                    </pre>
+                    <p>Naudojant <span class="text-primary">while-loop</span> svarbu, kad vienas iš veiksmų keistų
+                        salygos reikšmes, nes jei salyga nekis, tai ciklas bus kartojamas be pabaigos. Taip pat galima
+                        ciklo viduje panaudoti <span class="text-primary">break;</span>, kuris užbaigia ciklą, arba jei
+                        esame funkcijoje, grąžinti reikšmę su <span class="text-primary">return</span></p>
+                </div>
 
-                <div class="tab-pane fade" id="tab-4" role="tabpanel">
-                    <p>
-                        Sekos valdymo struktūros yra trys: <span class="text-primary">if-else</span>, <span class="text-primary">while-loop</span> ir <span class="text-primary">for-loop</span>  
-                    </p>
-                    <p>
-                        Dažiausiai iš jų naudojama yra <span class="text-primary">if-else</span>
-                    </p>
+                <div class="tab-pane fade show active" id="tab-8" role="tabpanel">
+                    <h3>Užduotys</h3>
+                    <ol start="0">
+                        <li>
+                            <a href="https://exercism.org/tracks/javascript/exercises/hello-world" target="_blank">
+                                "Hello World" susipažinimui su programa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://exercism.org/tracks/javascript/exercises/lasagna" target="_blank">
+                                Lazanija
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://exercism.org/tracks/javascript/exercises/annalyns-infiltration" target="_blank">
+                                Pabėgimas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://exercism.org/tracks/javascript/exercises/vehicle-purchase" target="_blank">
+                                Automobilio pirkimas
+                            </a>
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -125,24 +326,26 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-        <script>
-            window.onload = () => {
+        <script defer>
+            "use strict";
+
+            {
                 const saveTab = (element) => localStorage.setItem('activeTab', element.dataset.bsTarget);
                 const onEventSaveTarget = (event) => saveTab(event.target)
 
                 document.querySelector('#page-tabs')
-                        .querySelectorAll('.nav-link')
-                        .forEach( tab => 
-                            tab.addEventListener('shown.bs.tab', onEventSaveTarget)
-                        );
+                    .querySelectorAll('.nav-link')
+                    .forEach(tab =>
+                        tab.addEventListener('shown.bs.tab', onEventSaveTarget)
+                    );
 
-                var activeTab = localStorage.getItem('activeTab');
-                if(activeTab){
+                const activeTab = localStorage.getItem('activeTab');
+                if (activeTab) {
                     const tab = document.querySelector(`#page-tabs .nav-link[data-bs-target="${activeTab}"]`);
                     new bootstrap.Tab(tab).show();
                 }
             }
-            </script>
+        </script>
         <script>
         //Galite Javascript rašyti čia ir bandyti naršyklėje
         </script>
