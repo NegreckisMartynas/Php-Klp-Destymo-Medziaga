@@ -26,54 +26,61 @@
             text-align: center;
         }
 
-        table.string-table th, td{
+        table.string-table th,
+        td {
             border: 1px solid gray;
             padding: 4px;
         }
 
-        table.string-table th.L{
-            border-left: 4px solid darkred;
+        table.string-table th.L {
+            border-left: 4px solid #0d6efd;
         }
 
-        table.string-table td.L{
-            border-left: 4px solid darkred;
-            border-bottom: 4px solid darkred;
+        table.string-table td.L {
+            border-left: 4px solid #0d6efd;
+            border-bottom: 4px solid #0d6efd;
         }
     </style>
 </head>
 
 <body>
-    <h2 class="text-center">Pagalbinės funkcijos</h2>
+    <h2 class="text-center">Pagalbinės funkcijos ir atributai</h2>
     <div class="container">
         <div class="row border rounded ">
             <ul id="page-tabs" class="nav nav-tabs">
                 <li class="nav-item">
-                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-1"
+                    <button class="nav-link h-100 active" data-bs-toggle="tab" data-bs-target="#tab-1"
                         type="button">console.log</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2"
-                        type="button">Math.round</button>
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-2"
+                        type="button">Math.round <br\>
+                                      (ceil, floor)</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3"
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-3"
                         type="button">Math.random</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4"
-                        type="button">'string'.substring</button>
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-4"
+                        type="button">'string'.charAt</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5" type="button">5</button>
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-5"
+                        type="button">'string'.toUpperCase <br />
+                        'string'.toLowerCase</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-6" type="button">6</button>
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-6"
+                        type="button">'string'.slice</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-7" type="button">7</button>
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-6"
+                        type="button">'string'.trim</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-8" type="button">8</button>
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-6"
+                        type="button">'string'.length</button>
                 </li>
             </ul>
             <div class="tab-content pt-3" id="myTabContent">
@@ -102,12 +109,59 @@
                     </code></pre>
                 </div>
                 <div class="tab-pane fade" id="tab-4" role="tabpanel">
-                    <h4>'string'.substring(startIndex, endIndex)</h4>
+                    <h4>'string'.charAt(index)</h4>
+                    <p>Grąžina simbolį, esantį nurodytoje pozijijoje. 0 - pirmas simbolis, 1 - antras ir t.t.</p>
+                    <p>'Hello World!'.charAt(6)</p>
+                    <div class="mb-3">
+                        <table class="string-table">
+                            <thead>
+                                <th>H</th>
+                                <th>e</th>
+                                <th>l</th>
+                                <th>l</th>
+                                <th>o</th>
+                                <th>&nbsp;</th>
+                                <th class="L">W</th>
+                                <th>o</th>
+                                <th>r</th>
+                                <th>l</th>
+                                <th>d</th>
+                                <th>!</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td class="L">6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                    <td>10</td>
+                                    <td>11</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab-5" role="tabpanel">
+                    <h4>'string'.toUpperCase()</h4>
+                    <p>Grąžina teksto kopiją su visomis raidėmis paverstomis didžiosiomis, pvz: 'Hello World!' -> 'HELLO WORLD!' <br/>
+                    <strong>Veikia</strong> su Lietuviškomis raidėmis.</p>
+                    <h4>'string'.toLowerCase()</h4>
+                    <p>Grąžina teksto kopiją su visomis raidėmis paverstomis mažosiomis, pvz: 'Hello World!' -> 'hello world!' <br/>
+                    <strong>Veikia</strong> su Lietuviškomis raidėmis.</p>
+                </div>
+                <div class="tab-pane fade" id="tab-6" role="tabpanel">
+                    <h4>'string'.slice(startIndex, endIndex)</h4>
                     <p>Grąžina teksto dalį iš pradinio teksto pagal nurodytus indeksus. Indeksai prasideda nuo
                         <em>0</em> kaip masyvuose. Kad lengiau atsiminti, kokia dalis bus paimta, naudojam <strong>L
                             taisyklę</strong>:
                     </p>
-                    <pre><code><i><code>const</code> world = 'Hello World!'.substring(6, 11);</i>
+                    <pre><code><i><code>const</code> world = 'Hello World!'.slice(<b>6</b>, <b>11</b>);</i>
                         <i>world; <span class="text-secondary">--&gt; 'World'</span></i>
                     </code></pre>
                     <table class="string-table">
@@ -133,29 +187,25 @@
                                 <td>3</td>
                                 <td>4</td>
                                 <td>5</td>
-                                <td class="L">6</td>
+                                <td class="L"><b>6</b></td>
                                 <td>7</td>
                                 <td>8</td>
                                 <td>9</td>
                                 <td>10</td>
-                                <td class="L">11</td>
+                                <td class="L"><b>11</b></td>
                             </tr>
                         </tbody>
                     </table>
-                    <h5>'string'.substring(startIndex)</h5>
-                    <p>Praleidžiant paskutinį argumnetą, substring ilgis yra nuo startIndex iki pradinio teksto pabaigos</p>
-                </div>
-                <div class="tab-pane fade" id="tab-5" role="tabpanel">
-
-                </div>
-                <div class="tab-pane fade" id="tab-6" role="tabpanel">
-
+                    <h5>'string'.slice(startIndex)</h5>
+                    <p>Praleidžiant paskutinį argumentą, slice ilgis yra nuo startIndex iki pradinio teksto pabaigos</p>
                 </div>
                 <div class="tab-pane fade" id="tab-7" role="tabpanel">
-
+                    <h4>'string'.trim()</h4>
+                    <p>Pašalina tarpus ir kitus "whitespace" elementus string pradžioje ir pabaigoje: '   Hello World!  '.trim() <span class="text-secondary">--&gt; 'Hello World!'</span></p>
                 </div>
                 <div class="tab-pane fade" id="tab-8" role="tabpanel">
-
+                    <h4>'string'.length</h4>
+                    <p>Grąžina simbolių skaičių.  'Hello World!'.trim() <span class="text-secondary">--&gt; 12</span></p>
                 </div>
             </div>
         </div>
