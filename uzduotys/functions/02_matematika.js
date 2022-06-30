@@ -1,12 +1,6 @@
 // Sukurkite funkcijas add, subtract, multiply, divide, remainder funkcijas, kurios atlieka atitinkamus matematinius veiksmus su sveikomis reikšmėmis.
 // Divide turi grąžinti sveiką skaičių: apvalinkite į mažają pusę
 
-const add = (a,b) => a+b;
-const subtract = (a,b) => a-b;
-const multiply = (a,b) => a*b;
-const divide = (a,b) => Math.floor(a/b);
-const remainder = (a,b) => a % b;
-
 
 
 // Testavimai apačioje
