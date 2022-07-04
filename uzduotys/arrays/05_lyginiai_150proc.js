@@ -2,7 +2,7 @@
 // tip: naudotike anksčiau parašytas funkcijas
 
 function lyginiaiProc150(arr) {
-    //throw new Error('Function not implemented');
+    throw new Error('Function not implemented');
 }
 
 
