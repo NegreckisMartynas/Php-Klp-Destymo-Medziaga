@@ -10,7 +10,7 @@ function lyginiai(arr) {
 const testLyginiai = makeTestFunction((input, output) => input + ' lyginiai: ' + output, lyginiai);
 
 testLyginiai([[1, 2, 3, 4, 5]], [2,4])
-testLyginiai([[81, 56, 26, 22, 81, 90]], [56, 26, 22])
+testLyginiai([[81, 56, 26, 22, 81, 90]], [56, 26, 22, 90])
 testLyginiai([[6821, 5714, 3122, 13422, 21513, 51346, 1641]], [5714, 3122, 13422, 51346])
 
 // pagalbinės funkcijos
