@@ -38,19 +38,19 @@ Vienas visą kelią važiavo 10km/h greičiu, kitas 20 km/h greičiu. Po kiek la
 // distance = 90
 // a = {pos: [90, 0], speed: [-10, 0]}
 // b = {pos: [0, 0], speed: [20, 0]}
-{
+function timeUntilMeet(a, b) {
     let time = 0;
-    let posA = point(90, 0);
-    let posB = point(0,0);
-    let speedA = point(-10,0);
-    let speedB = point(20,0);
-    while(posA.x > posB.x){
-        posA = pointAdd(posA, pointMult(speedA, 0.1));
-        posB = pointAdd(posB, pointMult(speedB, 0.1));
-        time += 0.1;
-        //console.log('Time', time, posA, posB);
+    const interval = 0.1;
+    while(a.pos.x > b.pos.x){
+        a.pos = pointAdd(a.pos, pointMult(a.speed, interval));
+        b.pos = pointAdd(b.pos, pointMult(b.speed, interval));
+        time += interval;
     }
+    console.log('Time until meet: ', Math.round(time * 1000) /1000, ' hours')
 }
+let a = {pos: point(90,0), speed: point(-10, 0)}
+let b = {pos: point(0,0), speed: point(20, 0)}
+timeUntilMeet(a, b);
 
 // koks atstumas tarp dviratininku po 1.5 val, jei isvaziuoja priesingomis kryptimis
 // vieno greitis 10 km/h, kito 20 km/h
@@ -64,7 +64,7 @@ Vienas visą kelią važiavo 10km/h greičiu, kitas 20 km/h greičiu. Po kiek la
         posA = pointAdd(posA, pointMult(speedA, 0.1));
         posB = pointAdd(posB, pointMult(speedB, 0.1));
         time -= 0.1;
-        console.log('Time', time, posA, posB);
+        //console.log('Time', time, posA, posB);
     }
     console.log(lineLength(posA, posB))
 }
