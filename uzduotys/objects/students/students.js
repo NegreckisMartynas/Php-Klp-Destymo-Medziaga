@@ -1,7 +1,7 @@
 const data = require('./data.js')
 
 // Parašyti funkcijas: 
-
+console.log(data[1]);
 // Atspausdinti studentų vardus ir pavardes
 
 
@@ -19,12 +19,3 @@ const data = require('./data.js')
 
 
 // Atspausdinti studentus, kurių bent vienas pažimys mažesnis už 4
-
-
-
-// Surikiuoti studento pažymius didėjimo tvarka
-data[0].forEach(e => e.fun = () => console.log(e));
-data[0][0].fun(data[0][0]);
-
-
-// Surikiuoti studentus pagal jų vidurkius didėjimo tvarka
