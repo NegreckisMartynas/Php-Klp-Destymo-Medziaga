@@ -41,34 +41,32 @@ Vienas visą kelią važiavo 10km/h greičiu, kitas 20 km/h greičiu. Po kiek la
 function timeUntilMeet(a, b) {
     let time = 0;
     const interval = 0.1;
-    while(a.pos.x > b.pos.x){
+    while(a.pos.x > b.pos.x && time < 10000){
         a.pos = pointAdd(a.pos, pointMult(a.speed, interval));
         b.pos = pointAdd(b.pos, pointMult(b.speed, interval));
         time += interval;
     }
     console.log('Time until meet: ', Math.round(time * 1000) /1000, ' hours')
 }
-let a = {pos: point(90,0), speed: point(-10, 0)}
+let a = {pos: point(90,0), speed: point(30, 0)}
 let b = {pos: point(0,0), speed: point(20, 0)}
 timeUntilMeet(a, b);
 
 // koks atstumas tarp dviratininku po 1.5 val, jei isvaziuoja priesingomis kryptimis
 // vieno greitis 10 km/h, kito 20 km/h
-{
-    let time = 1.5;//
-    let posA = point(0,0);
-    let posB = point(0,0);
-    let speedA = point(-10,0);//
-    let speedB = point(20,0);//
+function distanceAfterTime(time, a, b) {
+    const interval = 0.1;
     while(time > 0){
-        posA = pointAdd(posA, pointMult(speedA, 0.1));
-        posB = pointAdd(posB, pointMult(speedB, 0.1));
-        time -= 0.1;
-        //console.log('Time', time, posA, posB);
+        a.pos = pointAdd(a.pos, pointMult(a.speed, interval));
+        b.pos = pointAdd(b.pos, pointMult(b.speed, interval));
+        time -= interval;
     }
-    console.log(lineLength(posA, posB))
+    console.log('Distance after travel: ', lineLength(a.pos, b.pos))
 }
-
+a = {pos: point(0,0), speed: point(-10,0)}
+b = {pos: point(0,0), speed: point(20,0)}
+let time = 1.5;
+distanceAfterTime(time, a, b);
 /*
 Iš autobusų stoties išvyko du autobusai priešingomis kryptimis.
 Vieno autobuso greitis du kartus mažesnis už kito autobuso greitį. 
