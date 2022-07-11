@@ -72,27 +72,26 @@ Iš autobusų stoties išvyko du autobusai priešingomis kryptimis.
 Vieno autobuso greitis du kartus mažesnis už kito autobuso greitį. 
 Po kiek laiko atstumas tarp autobusų bus 450 km, jeigu vieno iš autobusų greitis 60km/val ?
 */
+function timeUntilDistance(distance, a, b) {
+    let time = 0;
+    a = {pos : copyPoint(a.pos), speed: a.speed};
+    b = {pos : copyPoint(b.pos), speed: b.speed};
+    const interval = 0.1;
+    while(lineLength(a.pos, b.pos) < distance) {
+        a.pos = pointAdd(a.pos, pointMult(a.speed, interval));
+        b.pos = pointAdd(b.pos, pointMult(b.speed, interval));
+        time += interval;
+    }
+    console.log('Time until distace reached:', Math.round(time * 1000) /1000);
+}
+let distance = 450;
+a = {pos: point(0,0), speed: point(60,0)}
+b1 = {pos: point(0,0), speed: pointMult(a.speed, -0.5)}
+b2 = {pos: point(0,0), speed: pointMult(a.speed, -2)}
+timeUntilDistance(distance, a, b1);
+timeUntilDistance(distance, a, b2);
+console.log(a); // Kadangi padarom a.pos kopija, a.pos nepasikeicia originale
 
-{
-    const distance = 450;
-    let posA = point(0,0);
-    let posB1 = point(0,0);
-    let posB2 = point(0,0);
-    const speedA = point(60,0);
-    const speedB1 = point(-30,0);
-    const speedB2 = point(-120,0);
-    let time1 = 0;
-    let time2 = 0;
-    while(lineLength(posA, posB1) < distance) {
-        posA = pointAdd(posA, pointMult(speedA, 0.1));
-        posB1 = pointAdd(posB1, pointMult(speedB1, 0.1));
-        time1 += 0.1
-    }
-    posA = point(0,0);
-    while(lineLength(posA, posB2) < distance) {
-        posA = pointAdd(posA, pointMult(speedA, 0.5));
-        posB2 = pointAdd(posB2, pointMult(speedB2, 0.5));
-        time2 += 0.5;
-    }
-    console.log(time1, time2);
+function copyPoint(p) {
+    return {x: p.x, y: p.y}
 }
