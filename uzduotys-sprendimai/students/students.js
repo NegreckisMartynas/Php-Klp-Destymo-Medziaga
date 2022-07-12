@@ -17,10 +17,18 @@ data[1].forEach(printNames);
 data[1].map(student => fullName(student))
        .forEach(name => console.log(name));
 
+console.log('============');
 // Suskaičiuoti studento pažymių vidurkį
-
-
-
+function gradesAverage(student) {
+    const sum = student.grades.reduce((sum, n) => sum + n);
+    const avg = sum / student.grades.length;
+    return avg;
+}
+//console.log(data[0][0]);
+//console.log(gradesAverage(data[0][0]));
+data[1].map(gradesAverage) // [avg, avg, avg]
+       .forEach(avg => console.log(avg));
+console.log('============');
 // Atspausdinti studento vardą, pavardę bei jo pažymių vidurkį
 
 
