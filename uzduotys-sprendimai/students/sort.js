@@ -29,7 +29,7 @@ function studentGradeAvg(student) {
 }
 
 data[2].map(studentGradeAvg)
-       .sort(funSort)
+       .sort(compareStudents)
        .forEach(student => console.log(student))
 
 function compareStudents(a, b) { 
@@ -44,8 +44,8 @@ function compareStudents(a, b) {
     return comp;
 }
 
-function funSort(a, b) {
-    return (Math.random() * 2) - 1;
+function funSort(a, b) { //random sort
+    return (Math.random() * 2) - 1; //[-1;1)
 }
 
 
