@@ -52,5 +52,21 @@ function gradesLowerThan4(student){
 
 data[1].map(gradesLowerThan4)
        .forEach(grades => console.log(grades));
-       console.log('============');
+console.log('============');
 // Atspausdinti studentus, kurių bent vienas pažimys mažesnis už 4
+
+function studentWithGradesLower(student){
+    return {
+        name: student.first_name + ' ' + student.last_name,
+        gradesLowerThan4: gradesLowerThan4(student)
+    };
+}
+
+function anyGradeLowerThan4(student) { 
+    const lowerThan4 = gradesLowerThan4(student);
+    return lowerThan4.length > 0;
+}
+
+data[2].filter(anyGradeLowerThan4)
+       .map(studentWithGradesLower)
+       .forEach(el => console.log(el));
