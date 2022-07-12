@@ -30,7 +30,17 @@ data[1].map(gradesAverage) // [avg, avg, avg]
        .forEach(avg => console.log(avg));
 console.log('============');
 // Atspausdinti studento vardą, pavardę bei jo pažymių vidurkį
+function studentGradeAvg(student) {
+     const avg = gradesAverage(student);
+     const name = fullName(student);
+     return {
+        name: name,
+        avg: avg,
+     }
+}
 
+data[1].map(studentGradeAvg) //[{name, avg}, {name, avg}, {name, avg}]
+       .forEach(student => console.log(student.name, student.avg));
 
 
 // Išrinkti tik pažymius, kurie mažensi už 4
