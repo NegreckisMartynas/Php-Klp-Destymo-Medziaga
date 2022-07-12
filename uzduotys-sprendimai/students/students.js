@@ -41,10 +41,16 @@ function studentGradeAvg(student) {
 
 data[1].map(studentGradeAvg) //[{name, avg}, {name, avg}, {name, avg}]
        .forEach(student => console.log(student.name, student.avg));
-
+console.log('============');
 
 // Išrinkti tik pažymius, kurie mažensi už 4
+function gradesLowerThan4(student){
+    return student.grades.filter(grade => grade < 4);
+}
 
+//const gradesLowerThan4 = () => student.grades.filter(grade => grade < 4)
 
-
+data[1].map(gradesLowerThan4)
+       .forEach(grades => console.log(grades));
+       console.log('============');
 // Atspausdinti studentus, kurių bent vienas pažimys mažesnis už 4
