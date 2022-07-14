@@ -1,3 +1,21 @@
+class Employee {
+    constructor(firstName, lastName, salary){
+        this.vardas = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+    }
+    calculateWages(hours) {
+        return this.salary * hours;
+    }
+    raiseSalary(raise) {
+        this.salary += raise;
+    }
+    toString() {
+        return 'Employee "' + this.vardas + ' ' + this.lastName +
+               '"; Salary: ' + this.salary;
+    }
+}
+
 function employee(firstName, lastName, salary) {
     return {
         vardas: firstName,
@@ -16,6 +34,20 @@ function employee(firstName, lastName, salary) {
         }
     }
 }
+class Volunteer {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    calculateWages(hours) {
+        return 0;
+    }
+    raiseSalary() {}
+    toString() {
+        return `Volunteer "${this.firstName} ${this.lastName}"`;
+    }
+}
+
 function volunteer(firstName, lastName) {
     return {
         vardas: firstName,
@@ -30,6 +62,8 @@ function volunteer(firstName, lastName) {
         }
     }
 }
+
+
 function boss(firstName, lastName) {
     return {
         vardas: firstName,
@@ -63,10 +97,10 @@ console.log(emp1);
 
 const employees = [
     boss('Boss', 'Ceo'),
-    employee('Vard', 'Pav', 20),
-    employee('Foo', 'Bar', 25.2),
-    volunteer('Volun', 'Teer'), //unpaid, salary never increases
-    employee('Int', 'Ern', 0),//unpaid for now, but paid after salary increase
+    new Employee('Vard', 'Pav', 20),
+    new Employee('Foo', 'Bar', 25.2),
+    new Volunteer('Volun', 'Teer'), //unpaid, salary never increases
+    new Employee('Int', 'Ern', 0),//unpaid for now, but paid after salary increase
     { //fits interface, so no errors
         calculateWages() {return 10},
         raiseSalary(raise) { console.log('Salaries raised:', raise )},
@@ -94,3 +128,7 @@ printEmployees(employees);
 // --emp2 = emp1 = {1}
 //emp1 = {2}
 // emp1 = {2}, --emp2 = {1};
+
+const employeeFromFunction = employee('Vardenis', 'Pavardenis', 20);
+const employeeFromClass = new Employee('Vardenis', 'Pavardenis', 20);
+console.log(employeeFromFunction, employeeFromClass);
