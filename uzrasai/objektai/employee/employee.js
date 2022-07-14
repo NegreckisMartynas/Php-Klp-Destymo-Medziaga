@@ -66,12 +66,12 @@ const employees = [
     employee('Vard', 'Pav', 20),
     employee('Foo', 'Bar', 25.2),
     volunteer('Volun', 'Teer'), //unpaid, salary never increases
-    employee('Int', 'Ern', 0),
-    {
+    employee('Int', 'Ern', 0),//unpaid for now, but paid after salary increase
+    { //fits interface, so no errors
         calculateWages() {return 10},
         raiseSalary(raise) { console.log('Salaries raised:', raise )},
         toString() { return 'Secret employee'}
-    }, //unpaid for now, but paid after salary increase
+    }, 
 ]
 
 function wagesPaid(workHours, employees) {
