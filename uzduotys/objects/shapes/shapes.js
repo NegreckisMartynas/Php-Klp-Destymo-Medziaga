@@ -10,9 +10,6 @@ const {data, shape, help} = require('./data');
 // Reikalingos formos: apskritimas, keturkampis, kvadratas, trikampis
 // Kontruktorių parametrai jūsų pasirenkami; parinkite tokius, kurie jūsų manymu reikalingi formai nustatyti
 
-
-const dot = {input: {x: 0, y: 0}, output: {perimeter: 0, area:0}}
-
 class Dot {
     constructor(x, y) {
         this.x = x;
