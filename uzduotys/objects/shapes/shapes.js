@@ -25,10 +25,24 @@ class Dot {
     }
 }
 
-for(let i = 0; i < 10000; i++) {
-    test(Dot).take('x','y')
-                .withData(data.set(shape.Dot.test).random(50))
-                .printErrors()
+class Rectangle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    perimeter() {
+        return 0;
+    }
+
+    area() {
+        return 0;
+    }
 }
 
+test(Rectangle).take('width', 'height')
+         .withData(data.set(shape.Rectangle.double).random(5))
+         .printErrors();
+
+shape.Rectangle.help();
 help();
