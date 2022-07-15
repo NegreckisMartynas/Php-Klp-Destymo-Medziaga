@@ -10,9 +10,6 @@ const {data, shape, help} = require('./data');
 // Reikalingos formos: apskritimas, keturkampis, kvadratas, trikampis
 // Kontruktorių parametrai jūsų pasirenkami; parinkite tokius, kurie jūsų manymu reikalingi formai nustatyti
 
-
-const dot = {input: {x: 0, y: 0}, output: {perimeter: 0, area:0}}
-
 class Dot {
     constructor(x, y) {
         this.x = x;
@@ -28,10 +25,24 @@ class Dot {
     }
 }
 
-for(let i = 0; i < 10000; i++) {
-    test(Dot).take('x','y')
-                .withData(data.set(shape.Dot.test).random(50))
-                .printErrors()
+class Rectangle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    perimeter() {
+        return 0;
+    }
+
+    area() {
+        return 0;
+    }
 }
 
+test(Rectangle).take('width', 'height')
+         .withData(data.set(shape.Rectangle.double).random(5))
+         .printErrors();
+
+shape.Rectangle.help();
 help();
