@@ -11,7 +11,7 @@ exports.sets = () => Object.getOwnPropertyNames(exports.set);
 
 exports.set = {};
 
-exports.small = [
+exports.set.small = [
 {
     input: { radius: 5 },
     output: { perimeter: 31.4159265, area: 78.5398163 }
@@ -414,7 +414,7 @@ exports.small = [
 }
 ]
   
-exports.mid = [
+exports.set.mid = [
     {
       input: { radius: 83 },
       output: { perimeter: 521.5043805, area: 21642.4317906 }
@@ -818,7 +818,7 @@ exports.mid = [
   ]
   
 
-exports.double = [
+exports.set.double = [
     {
       input: { radius: 26.279 },
       output: { perimeter: 165.1158267, area: 2169.5394048 }

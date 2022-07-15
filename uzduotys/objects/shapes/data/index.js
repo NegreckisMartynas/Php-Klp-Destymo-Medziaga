@@ -73,7 +73,7 @@ function randomData(selSet, limit) {
     limit = limit ?? 1;
     const randInRange = new Set();
 
-    while(randInRange.size < limit && randInRange.size !== selSet.limit) {
+    while(randInRange.size < limit && randInRange.size !== selSet.length) {
         randInRange.add(Math.floor(random(0, selSet.length)))
     }
     return [...randInRange].map(i => selSet[i]);
