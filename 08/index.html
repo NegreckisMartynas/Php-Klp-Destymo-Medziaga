@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <style>
+        pre,
+        pre>code {
+            white-space: pre-line;
+        }
+
+        pre>code>i {
+            white-space: pre;
+            font-style: unset;
+        }
+
+        pre>code code {
+            color: #d63384;
+        }
+
+        table.string-table {
+            text-align: center;
+        }
+
+        table.string-table th,
+        td {
+            border: 1px solid gray;
+            padding: 4px;
+        }
+
+        table.string-table th.L {
+            border-left: 4px solid #0d6efd;
+        }
+
+        table.string-table td.L {
+            border-left: 4px solid #0d6efd;
+            border-bottom: 4px solid #0d6efd;
+        }
+
+        .font-smaller {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center">DOM, HTML elementų pasiekimas per Javascript</h2>
+    <div class="container">
+        <div class="row border rounded ">
+            <ul id="page-tabs" class="nav nav-tabs">
+                <li class="nav-item">
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-1"
+                        type="button">DOM</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-2"
+                        type="button">document</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-3"
+                        type="button">querySelector</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-4"
+                        type="button">querySelectorAll</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-5"
+                        type="button">innerText</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-6"
+                        type="button">getAttribute, setAttribute ir kiti</button>
+                </li>
+            </ul>
+            <div class="tab-content pt-3" id="myTabContent">
+                <div class="tab-pane fade show" id="tab-1" role="tabpanel">
+                    <h4>DOM</h4>
+                    <p>
+                        DOM - programavimo prieeiga prie HTML puslapio ir jo elementų. 
+                        DOM turi atitinkamus objektus HTML elementams ir metodus šiuos elementus kurti ir modifikuoti.
+                    </p>
+                    <p>
+                        DOM pasiekiamas tik per naršyklę vykdomame JS kode. 
+                        Node.js aplinka <strong>neturi</strong> DOM prieeigos, nes nėra dirbama su puslapiais.
+                    </p>
+                    <p>
+                        Tam tikri DOM elementų metodai grąžina "live" kolekcijas (automatiškai atsinaujinančias), o kiti - "stale" (neatsinaujančias). 
+                        Abu tipai iš pirmo žvigsnio atrodo kaip masyvai, bet jie neturi visų masyvo savybių. 
+                        Rekomendacija šiuos tipus pakonvertuoti į masyvą prieš dirbant su juo:
+                    </p>
+                    <pre>const elements = Array.from(document.querySelectorAll('div'));</pre>
+                </div>
+                <div class="tab-pane fade" id="tab-2" role="tabpanel">
+                    <h4>document</h4>
+                    <p>
+                        <span class="text-primary">document</span> yra DOM elementas, atitinkantis visą dokumentą.
+                        Šis elementas pasiekiamas iš bet kurios vietos.
+                    </p>
+                    <p>
+                        Dažniausia šio elemento paskirtis - būti pradžios taškas, nuo kurio ieškomi kiti elementai.
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="tab-3" role="tabpanel">
+                    <h4>querySelector(selector)</h4>
+                    <p>
+                        querySelector(selector) suranda <strong>pirmą</strong> elementą pagal selektorių ir jį grąžina <strong>vieną</strong>, arba null jei neranda.
+                    </p>
+                    <p>
+                        selector - string; toks pats kaip ir CSS selector. Kaip ir CSS, galima kelis selectors skirti kableliu.
+                    </p>
+                    <p>
+                        Šis metodatas egzistuoja pas visus elementus, kurie gali turėti vidinius elementus.
+                    </p>
+                    <pre><code>
+                        <i>const exampleById = document.querySelector('#example'); //single item</i>
+                        <i>const exampleByClass = document.querySelector('.example-class'); //first with class "example-class"</i>
+                        <i>const exampleWithAttribute = document.querySelector('*[data-attribute]'); //elements with &lt;tag data-attribute&gt;</i>
+                    </code></pre>
+                    <hr>
+                    <h5>getElementById(id)</h5>
+                    <p>
+                        Galite kode kartais pamatyti metodą <em>getElementById</em>.
+                        Šis metodas taip pat paima vieną elementą, bet ieško tik pagal ID.
+                        <pre><code><i>  document.getElementById('example')</i></code></pre>
+                        Rekomenduojama naudoti <strong>querySelector</strong>; getElementById <em>nėra</em> greitesnis už querySelector.
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="tab-4" role="tabpanel">
+                    <h4>querySelectorAll(selector)</h4>
+                    <p>
+                        querySelectorAll(selector) suranda <strong>visus</strong> elementus pagal selektorių ir grąžiną šį sąrašą kaip <strong>NodeList</strong>.
+                    </p>
+                    <p>
+                        selector - string; toks pats kaip ir CSS selector. Kaip ir CSS, galima kelis selectors skirti kableliu.
+                    </p>
+                    <p>
+                        Šis metodatas egzistuoja pas visus elementus, kurie gali turėti vidinius elementus.
+                    </p>
+                    <p>
+                        <strong>NodeList</strong> yra panašus į masyvą; galima paimti jo elementus per [index], turi length, forEach metodą,
+                        tačiau NodeList neturi metodų map, filter, reduce, slice ir kitų masyvo metodų.
+                        Rekomenduojama gautą NodeList pakonvertuoti į masyvą:
+                        <pre>const elements = Array.from(document.querySelectorAll('div'));</pre>
+                    </p>
+                    <hr>
+                    <h4>getElementsByClass, getElementsByTagName</h4>
+                    <p>
+                        Šie metodai, panašiai kaip ir getElementById, ieško elementų pagal atitinkamą sąvybę: 
+                        getElementsByClass - pagal klasę, getElementsByTagName - pagal elemento tipą (div, span ir t.t.).
+                    </p>
+                    <p>
+                        Šie metodai grąžina, žinoma, <strong>HTMLCollection</strong>. 
+                        Šita kolekcija yra "live" ir galima paimti elementus pagal indeksą ir paimti length.
+                        Rekomenduojama pakonvertuoti HTMLCollection į masyvą su Array.from()
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="tab-5" role="tabpanel">
+                    <h4>innerText</h4>
+                    <p>Elemento sąvybė innerText: dabartinis elemento tekstinis turinys.</p>
+                    <p>Pakeičiant šitą reikšmę elemento turinys puslapyje bus pakeistas į naują reikšmę, ištrinant visus prieš tai egzistavusius vidinius elementus.</p>
+                    <pre><code>document.querySelector('#example').innerText = 'New content'</code></pre>
+                    <p>Taip pat paimant innerText iš daugiasluoksnio elemento bus bandoma pakonvertuoti jo ir jo vaikų turinį į vieną tekstą.</p>
+                </div>
+                <div class="tab-pane fade" id="tab-6" role="tabpanel">
+                    <h4>getAttribute(attrName), hasAttribute(attrName), setAttribute(attrName, value), removeAttribute(attrName)</h4>
+                    <p>getAttribute(attrName) grąžina elemento atributą nurodytu pavadinimu. Jei jis nerandamas, grąžinama null, arba kai kuriose naršyklėse "".</p>
+                    <p>hasAttribute(attrName) grąžina true jei atributas egzistuoja, false jei ne. Šį metodą naudoti, kai ieškoma atributo be reikšmės, pvz.: disabled.</p>
+                    <p>setAttribute(attrName, value) sukuria atributą, jei jis neegzistuona ir pakeičia reikšmę į value. Jei reikia atributo be reikšmės, value = "".</p>
+                    <p>removeAttribute(attrName) pašalina nurodytą atributą.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container pt-3 text-secondary">
+            <div class="row">
+                <h5>Element with ID "example"</h5>
+                <div id="example">id="example"</div>
+            </div>
+            <div class="row">
+                <h5>Elements with class "example-class"</h5>
+                <div class="example-class foo">class="example-class foo"</div>
+                <div class="example-class bar">class="example-class bar"</div>
+                <div class="example-class baz">class="example-class baz"</div>
+            </div>
+        </div>
+        <!-- bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        <script defer>
+            "use strict";
+
+            {
+                const saveTab = (element) => localStorage.setItem('activeTab', element.dataset.bsTarget);
+                const onEventSaveTarget = (event) => saveTab(event.target)
+
+                document.querySelector('#page-tabs')
+                    .querySelectorAll('.nav-link')
+                    .forEach(tab =>
+                        tab.addEventListener('shown.bs.tab', onEventSaveTarget)
+                    );
+
+                const activeTab = localStorage.getItem('activeTab');
+                if (activeTab) {
+                    const tab = document.querySelector(`#page-tabs .nav-link[data-bs-target="${activeTab}"]`);
+                    if(!tab) tab = document.querySelector(`#page-tabs .nav-link[data-bs-target="#tab-1"]`)
+                    new bootstrap.Tab(tab).show();
+
+                }
+            }
+        </script>
+        <script>
+        //Galite Javascript rašyti čia ir bandyti naršyklėje
+        </script>
+</body>
+
+</html>
