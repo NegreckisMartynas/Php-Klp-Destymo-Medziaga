@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="./main.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header>
+            <div id="logo">Logo</div>
+            <div id="search-bar-container">
+                <div id="search-bar">
+                    <input type="text" placeholder="search"/>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <nav id="header-nav">
+                <a href="#">Link1</a>
+                <a href="#">Link2</a>
+                <a href="#">Link3</a>
+            </nav>
+        </header>
+        <nav id="main-nav">
+            <div class="links-section">
+                <a href="#">Link1</a>
+                <div class="sublinks">
+                    <a href="#">Sublink1-1</a>
+                    <a href="#">Sublink1-2</a>
+                    <a href="#">Sublink1-3</a>
+                </div>
+            </div>
+            <div class="links-section">
+                <a href="#">Link2</a>
+                <div class="sublinks">
+                    <a href="#">Sublink2-1</a>
+                    <a href="#">Sublink2-2</a>
+                    <a href="#">Sublink2-3</a>
+                </div>
+            </div>
+            <div class="links-section">
+                <a href="#">Link3</a>
+                <div class="sublinks">
+                    <a href="#">Sublink3-1</a>
+                    <a href="#">Sublink3-2</a>
+                    <a href="#">Sublink3-3</a>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <article>
+                <section>
+                    <h1>Films</h1>
+                    <div id="table"></div>
+                </section>
+            </article>
+        </main>
+        <footer>
+            Copyright
+        </footer>
+        <script src="data.js"></script>
+        <script defer>
+            console.log(data);
+            // Užduotis: naudodami duomenis masyve "data", sukurkite filmų lentelę.
+            // Reikia Filmo pavadinimo, kainos, 2 kitų stulpelių (jūsų pasirenkami).
+        </script>
+    </body>
+</html>
