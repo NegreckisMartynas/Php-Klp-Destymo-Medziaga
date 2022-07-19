@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+         th, td {
+             border: 1px solid black;
+         }
+         table {
+             border-collapse: collapse;
+         }
+        </style>
+    </head>
+    <body>
+        <table id='data-table'>
+            <thead>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Value
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Vardenis</td>
+                    <td>100</td>
+                </tr>
+            </tbody>
+        </table>
+        <script defer>
+         const data = [{
+             "name": "Aridatha",
+             "value": 47
+         }, {
+             "name": "Libbi",
+             "value": 21
+         }, {
+             "name": "Naoma",
+             "value": 56
+         }, {
+             "name": "Brok",
+             "value": 80
+         }, {
+             "name": "Dal",
+             "value": 66
+         }, {
+             "name": "Cherilyn",
+             "value": 80
+         }, {
+             "name": "Wileen",
+             "value": 95
+         }, {
+             "name": "Galvan",
+             "value": 84
+         }, {
+             "name": "Gamaliel",
+             "value": 53
+         }, {
+             "name": "Archie",
+             "value": 71
+         }, {
+             "name": "Stearn",
+             "value": 10
+         }, {
+             "name": "Padgett",
+             "value": 97
+         }, {
+             "name": "Kira",
+             "value": 39
+         }, {
+             "name": "Roxi",
+             "value": 92
+         }, {
+             "name": "Dannie",
+             "value": 3
+         }, {
+             "name": "Wren",
+             "value": 86
+         }, {
+             "name": "Boot",
+             "value": 74
+         }, {
+             "name": "Iorgos",
+             "value": 2
+         }, {
+             "name": "Tripp",
+             "value": 75
+         }, {
+             "name": "Filide",
+             "value": 58
+         }];
+
+         const table = document.querySelector('#data-table');
+         const tbody = table.querySelector('tbody');
+         //tbody.append(tr('Pavardenis', 50));
+         data.map(obj => tr(obj.name, obj.value))
+             .forEach(el => tbody.append(el));
+
+         function td(text) {
+             const td = document.createElement('td');
+             td.innerText = text;
+             return td;
+         }
+
+         function tr(name, value) {
+             const tr = document.createElement('tr');
+             tr.append(td(name));
+             tr.append(td(value));
+             return tr;
+         }
+        </script>
+        <script>
+         function before() {
+             const table = document.querySelector('#data-table');
+             const tbody = table.querySelector('tbody');
+             const trow = document.createElement('tr');
+             const td1 = document.createElement('td');
+             td1.innerText = 'Pavardenis';
+             const td2 = document.createElement('td');
+             td2.innerText = 50;
+             trow.append(td1);
+             trow.append(td2);
+             tbody.append(trow);
+         }
+        </script>
+    </body>
+</html>
