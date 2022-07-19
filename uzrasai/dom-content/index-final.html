@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+         img {
+           width: 128px;
+           float: left;
+         }
+        </style>
+    </head>
+    <body>
+        <article>
+            <h1></h1>
+            <content>
+              <img/>
+              <p id="article-text"></p>
+            </content>
+        </article>
+        <script defer>
+          const data = {
+            title: 'Hello world',
+            content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis tempus ex. Aenean ut nisl nunc. Etiam lorem orci, vestibulum quis metus vel, posuere faucibus mauris. Curabitur nisi leo, pretium ut gravida varius, interdum non dui. Praesent et massa mauris. Nulla ac massa blandit, accumsan libero id, tempor nibh. Vivamus eget porttitor justo. Curabitur in rutrum mi. Nulla ultrices est ac lectus posuere, id imperdiet libero laoreet. Nullam accumsan consequat dolor, sit amet maximus mauris. Vestibulum a ligula eget eros hendrerit ornare. Etiam quis libero ac velit dictum vulputate at vel ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Phasellus nec massa non mi vestibulum venenatis a eget mi. Morbi eleifend augue vulputate hendrerit ullamcorper. Nulla placerat iaculis magna, cursus faucibus lacus cursus eu. Duis feugiat enim enim, eu aliquam justo rhoncus in. Etiam tincidunt pellentesque ultrices. Etiam ultrices elementum sem nec vestibulum. Duis ullamcorper pretium metus, et scelerisque quam ornare id. Aliquam tellus turpis, maximus vel feugiat a, ornare sit amet orci. Sed fermentum luctus magna rutrum lacinia. Etiam mattis quis massa ut rhoncus. Phasellus volutpat metus a massa dapibus semper. Suspendisse non posuere est, sit amet iaculis ligula. Quisque hendrerit fringilla ex.
+
+Duis dignissim elementum turpis, vel commodo tellus convallis nec. Pellentesque cursus nunc vehicula mauris tristique accumsan. Sed lorem justo, consequat luctus erat nec, posuere pharetra nisl. Aenean eget justo nisi. Curabitur laoreet ante laoreet nibh maximus, id mattis enim pellentesque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus venenatis lorem sem, a ultrices neque venenatis nec. Donec aliquet risus at lorem dignissim condimentum. Duis dapibus ante eget felis hendrerit facilisis. Ut enim nisi, tempor sit amet cursus ut, dapibus et mi.
+
+Proin sit amet nunc ac lectus vehicula vulputate vel vulputate purus. In blandit, elit sit amet venenatis posuere, lacus magna semper neque, a bibendum lectus orci a elit. Pellentesque rutrum ante tristique rutrum fringilla. Aliquam non arcu sem. Praesent vestibulum dolor eros, semper fermentum magna vehicula quis. Aenean accumsan risus vel lorem dictum, ut dignissim ipsum euismod. Cras a justo nulla. Cras nec nisi at diam vestibulum semper. Cras ultrices dapibus purus eu tincidunt. Vivamus ornare enim sit amet fringilla congue. Sed placerat dui nisl, a maximus metus facilisis non.
+
+Nam viverra, augue sit amet euismod pellentesque, est erat aliquet elit, et lacinia nibh leo auctor tortor. Nunc feugiat mauris quam, ut viverra enim laoreet sed. Mauris imperdiet eget lorem vel mattis. Quisque sagittis accumsan nunc, eget tempor orci commodo at. Fusce volutpat luctus viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi sit amet sapien tempus, viverra eros id, sollicitudin sapien.`,
+            image: 'https://thiscatdoesnotexist.com/'
+          }
+         const article = document.querySelector('article');
+         article.querySelector('h1').innerText = data.title;
+         article.querySelector('#article-text').innerText = data.content;
+         article.querySelector('img').setAttribute('src', data.image);
+        </script>
+    </body>
+</html>
