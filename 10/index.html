@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <style>
+        table.string-table {
+            text-align: center;
+        }
+
+        table.string-table th,
+        td {
+            border: 1px solid gray;
+            padding: 4px;
+        }
+
+        table.string-table th.L {
+            border-left: 4px solid #0d6efd;
+        }
+
+        table.string-table td.L {
+            border-left: 4px solid #0d6efd;
+            border-bottom: 4px solid #0d6efd;
+        }
+
+        .font-smaller {
+            font-size: 0.8rem;
+        }
+
+        #exampleContainer {
+            background-color: #0d6efd;
+            width: 400px;
+            height: 160px;
+            display: flex;
+            padding: 30px;
+            margin: 10px;
+            position: relative;
+            gap: 30px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+        }
+
+        #exampleChild1 {
+            background-color: #1a2;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        #exampleChild2 {
+            background-color: #ee2;
+            flex-grow: 1;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center">DOM events, data attributes</h2>
+    <div class="container">
+        <div class="row border rounded ">
+            <ul id="page-tabs" class="nav nav-tabs">
+                <li class="nav-item">
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-1"
+                        type="button">Events</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-2"
+                        type="button">element.addEventListener</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-attr"
+                        type="button">HTML atributai</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-3"
+                        type="button">Default behavior</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-4"
+                        type="button">Propagation</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-5"
+                        type="button">MouseEvent</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-6"
+                        type="button">TouchEvent</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-7"
+                        type="button">element.remove</button>
+                </li>
+                <li class="nav-item">              
+                    <button class="nav-link h-100" data-bs-toggle="tab" data-bs-target="#tab-8"
+                        type="button">element.parentElement</button>
+                </li>
+            </ul>
+            <div class="tab-content pt-3" id="myTabContent">
+                <div class="tab-pane fade show" id="tab-1" role="tabpanel">
+                    <h4>Events</h4>
+                    <p>
+                        Events yra nustatomi veiksmai, kurie vykdomi įvykus tam tikram veiksui arba vartotojui atlikus veiksmą.
+                        Pavyzdžiui: paskaudimas ant elemento pele, klaviatūros klavišo paspaudimas, puslapio užkrovimas ir t.t.
+                    </p>
+                    <p>
+                        Su events yra surišamos funkcijos. 
+                        Įvykus atitinkamai salygai surišta funkcija iškviečiama, paduodant atitinkamą Event objektą kaip pirmajį parametrą.
+                    </p>
+                    <p>
+                        Su kiekvienu event galima surišti kelias funkcijas, ir funkcija gali būti surišta su keliais events.
+                    </p>
+                    <p>Pavyzdys, kaip atrodo funkcija, kuri paruošta surišti su event:</p>
+                    <pre class="js"><code>let counter = 0;
+function increaseCounter(event) {
+        event.stopPropagation();
+        counter++;
+        document.querySelector('#counter').innerText = counter;
+}</code></pre>
+                </div>
+                <div class="tab-pane fade" id="tab-2" role="tabpanel">
+                    <h4>element.addEventListener(eventName, eventFunction)</h4>
+                    <p>
+                        Suriša nurodytą elemento event su funkcija. Galima surišti kelias funkcijas su tuo pačiu event ir jos bus kviečiamos sudėjimo tvarka.
+                    </p>
+                    <p>eventName: string</p>
+                    <p>eventFunction: (eventObj) => {}</p>
+                    <p>Įvedus neteisingą event pavadinimą <strong>klaidos neišves</strong>, todėl atkreipkite dėmesį, kad pavadinimas būtų teisingas.</p>
+                    <p>Pavyzdys:</p>
+<pre class="js"><code>document.querySelector('#generateRandom').addEventListener('click', (e) => {
+    document.querySelector('#receiveRandom').innerText = Math.round(Math.random()*100 +1);
+})</code></pre>
+                <button id="generateRandom">Click me!</button>
+                <p id="receiveRandom"></p>
+                </div>
+                <div class="tab-pane fade" id="tab-3" role="tabpanel">
+                    <h4>Default behavior</h4>
+                    <p>
+                        Tam tikri elementai turi numatymą veiksmą, kai įvykstą event, pvz: eiti į "href" nuorodą, kai paspaudžiamas &lt;a&gt; elementas.
+                    </p>
+                    <p>
+                        Jeigu norime numatytą veiksmą išjungti, reikia pririšti funkciją, 
+                        kuri paduotam event objektui iškviečia <span class="text-primary">preventDefault()</span> metodą.
+                    </p>
+<pre class="js"><code>document.querySelector('#unopenableLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('Tried to open', e.target.getAttribute('href'));
+})</code></pre>
+                <a href="https://google.com" id="unopenableLink">Google link</a>
+                </div>
+                <div class="tab-pane fade" id="tab-4" role="tabpanel">
+                    <h4>Event propagation</h4>
+                    <p>
+                        Įvykus event kažkuriam elementui, po to jis kviečiamas ir tėviniam elementui.
+                    </p>
+                    <p>
+                        Galime event neleisti įvykti tėviniam elementui iškviesdami event objekto <span class="text-primary">stopPropagation()</span> metodą.
+                    </p>
+<pre><code>function createCounter() {
+    let count = 0;
+    return {
+        get() {
+            return count;
+        },
+        add() {
+            count++;
+            return count;
+        }
+    }
+}
+const countainerCounter = createCounter();
+const child1Counter = createCounter();
+const child2Counter = createCounter();
+
+const container = document.querySelector('#exampleContainer'); 
+const child1 = document.querySelector('#exampleChild1'); 
+const child2 = document.querySelector('#exampleChild2'); 
+container.addEventListener('click', event => {
+    container.querySelector('.count').innerText = countainerCounter.add();
+})
+child1.addEventListener('click', event => {
+    child1.querySelector('.count').innerText = child1Counter.add();
+})
+child2.addEventListener('click', event => {
+    child2.querySelector('.count').innerText = child2Counter.add();
+    event.stopPropagation();
+})</code></pre>
+                    <div id="exampleContainer">
+                        <span class="overlay">TimesClicked: <span class="count">0</span></span>
+                        <div id="exampleChild1">
+                            <span class="overlay">TimesClicked: <span class="count">0</span></span>
+                        </div>
+                        <div id="exampleChild2">
+                            <span class="overlay">TimesClicked: <span class="count">0</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab-5" role="tabpanel">
+                    <h4>MouseEvent</h4>
+                    <p>
+                        Dažniausiai naudojami events, susiję su pelės klavišo paspaudimu.
+                    </p>
+                    <p>Galimi events: 'click', 'dblclick', 'mouseup' 'mousedown'</p>
+                    <p>Šių events sukuriamas objektas: MouseEvent, todėl visi jie turi bendrus atributus. 
+                        Juos rasite <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent">čia</a>.</p>
+                    <p>clint event taip pat galime priskirti per HTML atributą 'onclick'</p>
+                </div>
+                <div class="tab-pane fade" id="tab-6" role="tabpanel">
+                    <h4>TouchEvent</h4>
+                    <p>
+                        Atitinkami events įrenginaims su liečiamu ekranu.
+                    </p>
+                    <p>Galimi events: 'touchstart', 'touchend', 'touchmove' 'touchcancel'</p>
+                    <p>Daugiau apie Touch events rasite <a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent">čia</a>.</p>
+                </div>
+                <div class="tab-pane fade" id="tab-attr" role="tabpanel">
+                    <h4>HTML atributai</h4>
+                    <p>
+                        Didelė dalis events turi atitinkamą atributą skirtą funkcijos pririšimui, pvz: onclick.
+                        Per šį atributą galime priskirtį tik vieną funkciją prie nurodyto event.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/javascript.min.js" integrity="sha512-5jXgs935s5HbqrOPf7Jl2CuGOdTqY/I6YtN++ucHs4qWjfG95AJMezR8TbTgKX/SiB8Mr+rubck6GRY6MspbKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script defer>
+            "use strict";
+
+            {
+                const saveTab = (element) => localStorage.setItem('activeTab', element.dataset.bsTarget);
+                const onEventSaveTarget = (event) => saveTab(event.target)
+
+                document.querySelector('#page-tabs')
+                    .querySelectorAll('.nav-link')
+                    .forEach(tab =>
+                        tab.addEventListener('shown.bs.tab', onEventSaveTarget)
+                    );
+
+                const activeTab = localStorage.getItem('activeTab');
+                if (activeTab) {
+                    const tab = document.querySelector(`#page-tabs .nav-link[data-bs-target="${activeTab}"]`);
+                    if(!tab) tab = document.querySelector(`#page-tabs .nav-link[data-bs-target="#tab-1"]`)
+                    new bootstrap.Tab(tab).show();
+
+                }
+
+                document.querySelectorAll('pre.js').forEach(codeBlock => {
+                    hljs.highlightElement(codeBlock);
+                })
+            }
+        </script>
+        <script defer>
+        //Galite Javascript rašyti čia ir bandyti naršyklėje
+            document.querySelector('#generateRandom').addEventListener('click', (e) => {
+                document.querySelector('#receiveRandom').innerText = Math.round(Math.random()*100 +1);
+            })
+            document.querySelector('#unopenableLink').addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Tried to open', e.target.getAttribute('href'));
+            })
+
+            function createCounter() {
+                let count = 0;
+                return {
+                    get() {
+                        return count;
+                    },
+                    add() {
+                        count++;
+                        return count;
+                    }
+                }
+            }
+            const countainerCounter = createCounter();
+            const child1Counter = createCounter();
+            const child2Counter = createCounter();
+
+            const container = document.querySelector('#exampleContainer'); 
+            const child1 = document.querySelector('#exampleChild1'); 
+            const child2 = document.querySelector('#exampleChild2'); 
+            container.addEventListener('click', event => {
+                container.querySelector('.count').innerText = countainerCounter.add();
+            })
+            child1.addEventListener('click', event => {
+                child1.querySelector('.count').innerText = child1Counter.add();
+            })
+            child2.addEventListener('click', event => {
+                child2.querySelector('.count').innerText = child2Counter.add();
+                event.stopPropagation();
+            })
+        </script>
+</body>
+
+</html>
