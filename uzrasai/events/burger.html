@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html onclick="closeMenu()">
+    <head>
+        <style>
+         body {
+             margin: 0;
+         }
+         ul {
+             list-style-type: none;
+             padding: 0;
+             margin: 0;
+         }
+         ul li {
+             background-color: #66d;
+             padding: 4px;
+             border-top: 1px solid white;
+         }
+         #nav-burger {
+             border: none;
+             padding: 2px;
+             background-color: #66d;
+             cursor: pointer;
+         }
+         nav {
+             width: 100%;
+             position: absolute;
+             top: 0;
+             /*display: none;*/
+             overflow: hidden;
+             max-height: 0px;
+             transition: 0.8s ease-in;
+         }
+
+         nav.show {
+             /*display:block;*/
+             max-height: 120px;
+         }
+         .relative {
+             position: relative;
+         }
+
+         #header {
+             background-color: #66d;
+             display:flex;
+             justify-content: space-between;
+         }
+
+         #header h2{
+             margin: 0
+         }
+        </style>
+    </head>
+    <body ">
+        <div id="header">
+            <h2>Title</h2>
+            <button id='nav-burger' onclick="toggleNav(event)">☰</button>
+        </div>
+        <div class="relative">
+            <nav class="" onclick="preventClose(event)">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>About</li>
+                    <li>Contacts</li>
+                </ul>
+            </nav>
+        </div>
+        <span>Hello</span>
+        <script defer>
+          function toggleNav(event) {
+             document.querySelector('nav')
+                     .classList
+                     .toggle('show');
+              event.stopPropagation();
+          }
+
+          function closeMenu() {
+              document.querySelector('nav')
+                     .classList
+                     .remove('show');
+          }
+
+          function preventClose(event) {
+              event.stopPropagation();
+          }
+        </script>
+    </body>
+</html>
