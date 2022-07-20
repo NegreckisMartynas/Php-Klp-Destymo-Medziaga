@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <button onclick="count(event)">Count: 0</button>
+        <div id='counter'>0</div>
+        <form onsubmit='event.preventDefault()'>
+            <input type='text' name='input'/>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+        <script defer>
+    function hello(event) {
+        console.log(event);
+    }
+    let counter = 0;
+    function count(event) {
+        counter++;
+        event.target.innerText
+        = 'Count: ' + counter;
+    }
+
+    document.querySelector('button')
+            .addEventListener('click',
+                              hello)
+    document.querySelector('button')
+            .addEventListener(
+                'contextmenu',
+                event => {
+                    console.log('Right click');
+                                //event.preventDefault()
+        });
+        </script>
+    </body>
+</html>

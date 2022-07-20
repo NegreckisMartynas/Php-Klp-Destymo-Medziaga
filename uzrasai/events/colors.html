@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+          .color {
+              display: inline-block;
+              background-color: #888;
+              width: 100px;
+              height: 100px;
+          }
+        </style>
+    </head>
+    <body>
+        <div onclick="recolor(event, this)">
+            <div class="color" onclick="recolorAndStop(event, this)">
+            </div>
+            <div class="color" onclick="recolor(event, this)">
+            </div>
+            <div class="color" onclick="recolor(event, this)">
+            </div>
+            <div class="color" onclick="recolor(event, this)">
+            </div>
+            <div class="color" onclick="recolor(event, this)">
+            </div>
+        </div>
+        <script defer>
+            function recolor(event, obj) {
+                obj.style.backgroundColor = randomColor();
+            }
+
+            function recolorAndStop(event, obj) {
+                obj.style.backgroundColor = randomColor();
+                event.stopPropagation();
+            }
+
+            function randomColor() {
+                return 'rgb(' + rand() +
+                       ',' + rand() +
+                       ','+ rand() +
+                       ')';
+                return `rgb(${rand()}, ${rand()}, ${rand()})`;
+            }
+
+            function rand() {
+                return Math.floor(Math.random() * 256);
+            }
+        </script>
+    </body>
+</html>
