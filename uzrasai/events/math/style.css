@@ -1,0 +1,9 @@
+.input-narrow {
+    width: 60px;
+}
+
+.output {
+    padding: 0 4px;
+    border: 1px solid grey;
+    border-radius: 2px;
+}
