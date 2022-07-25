@@ -253,7 +253,7 @@ for(const [key, value] of formData.entries()) {
                         <input type="text" name="field-2" placeholder="field-2"/>
                         <button type="submit">Submit</button>
                     </form>
-<pre><code>function eventsExample(event) {
+<pre class="js"><code>function eventsExample(event) {
     event.preventDefault();
     console.log(event.target.elements);
     console.log('field-1:', event.target.elements['field-1'].value);
@@ -286,6 +286,23 @@ for(const [key, value] of formData.entries()) {
                         </div>
                         <button>Submit</button>
                     </form>
+<pre class="js"><code>function passwordSubmit(event) {
+    if(!validate(event.target)){
+        event.preventDefault();
+    }
+}
+
+function validate(form) {
+    if(form.elements['password'].value.length <= 6) {
+        const parent = form.elements['password'].parentElement;
+        parent.classList.add('error');
+        const label = parent.querySelector('.error-label');
+        label.classList.remove('hidden');
+        label.innerText = 'Password too short!';
+        return false;
+    }
+    return true;
+}</code></pre>
                     <script>
                         function passwordSubmit(event) {
                             if(!validate(event.target)){
