@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+         form {
+             display: flex;
+             flex-direction: column;
+             width: 500px;
+             margin: auto;
+         }
+         input.error {
+             border-color: red;
+             border-style: solid;
+         }
+         span.error {
+             color: red;
+             font-size: 0.8em;
+         }
+         .hidden {
+             display: none;
+         }
+        </style>
+    </head>
+    <body>
+        <form action='/' method="POST"
+              onsubmit="sendRegistration(event)">
+            <!-- Username, email, password, confirm password -->
+            <input type="text" name="username"
+                   placeholder="Username"/>
+            <span class="error hidden" id="username-error">Error message</span>
+            <input type="email" name="email"
+                   Placeholder="Email"/>
+            <input type="password" name="password"
+                   placeholder="Password"/>
+            <input type="password" name="confirm"
+                   placeholder="Confirm password"/>
+            <span class="error hidden" id="password-error">Error message</span>
+            <button type="submit">Register</button>
+        </form>
+        <script src="script.js"></script>
+    </body>
+</html>
