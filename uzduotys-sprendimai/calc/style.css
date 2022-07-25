@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px 50px;
+    row-gap: 5px;
+    column-gap: 5px;
+}
+
+.w-2 {
+    grid-column: span 2;
+}
+
+.h-2 {
+    grid-row: span 2;
+}
+
+.enter {
+    background-color: lightblue;
+}
+
+.input {
+    height: 50px;
+    width: 220px;
+    margin-bottom: 10px;
+    background-color: wheat;
+
+}
